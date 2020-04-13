@@ -14,7 +14,7 @@
 
 unsigned char input[4];
 unsigned char key[4];
-unsigned char index;    
+unsigned short index;    
 
 enum LK_States{ LK_SMStart = 99, LK_Locked = 0, LK_Unlocked = 1, LK_LPressed, LK_LPressed_Wait, LK_LCheck, LK_ULPressed, LK_ULPressed_Wait, LK_ULCheck
 } LK_State;
@@ -22,7 +22,6 @@ enum LK_States{ LK_SMStart = 99, LK_Locked = 0, LK_Unlocked = 1, LK_LPressed, LK
 void TickFct_LK(){
 	switch (LK_State){
 		unsigned char i;
-		unsigned char state;
 	case LK_SMStart:
 		input[0] = 0x00; key[0] = 0x04; // hash
 		input[1] = 0x00; key[1] = 0x01; // x
