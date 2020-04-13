@@ -52,7 +52,7 @@ void TickFct_LK(){
 		break;
 	case  LK_LCheck:
 		LK_State = LK_Unlocked;
-		for (i = 0x00; i < 0x04; i = i=i+0x01){
+		for (i = 0x00; i < 0x04; i=i+0x01){
 			if (input[i] == 0x00){
 				LK_State = LK_LPressed_Wait;
 				break;
@@ -94,7 +94,7 @@ void TickFct_LK(){
 		break;
 	case  LK_ULCheck:
 		LK_State = LK_Locked;
-		for (i = 0x00; i < 0x04; i = i = i + 0x01){
+		for (i = 0x00; i < 0x04; i = i + 0x01){
 			if (input[i] == 0x00){
 				LK_State = LK_ULPressed_Wait;
 				break;
