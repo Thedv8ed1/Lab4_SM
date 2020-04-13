@@ -27,10 +27,10 @@ void TickFct_Cnt()
             CNT_State = CNT_Wait;
         }
         else if((PINA&0x01) && !(PINA&0x02)){
-            CNT_State = CNT_Wait_UP;
+            CNT_State = CNT_UP;
         }
         else if(!(PINA&0x01) && (PINA&0x02)){
-            CNT_State = CNT_Wait_DOWN;
+            CNT_State = CNT_DOWN;
         }
     break;
     case CNT_Wait_UP:
@@ -41,7 +41,7 @@ void TickFct_Cnt()
            CNT_State = CNT_Reset;
         }
         else if(!(PINA&0x01)){
-            CNT_State = CNT_UP;
+            CNT_State = CNT_Wait;
         }
     break;
     case CNT_Wait_DOWN:
@@ -52,7 +52,7 @@ void TickFct_Cnt()
             CNT_State =  CNT_Reset;
         }
         else if(!(PINA&0x02)){
-            CNT_State = CNT_DOWN;
+            CNT_State = CNT_Wait;
         }
     break;
     case CNT_UP:
