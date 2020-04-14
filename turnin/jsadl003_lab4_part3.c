@@ -29,10 +29,10 @@ void TickFct_LK()
         }
     break;
     case  LK_Correct_Pressed:
-        if((PINA&0x04) == 0x04){
+        if((PINA&0xFF) == 0x04){
             LK_State = LK_Correct_Pressed; 
         }
-        else if((PINA&0x00) == 0x00){
+        else if((PINA&0xFF) == 0x00){
             LK_State = LK_Correct_1;
         }
         else{
@@ -40,10 +40,10 @@ void TickFct_LK()
         }
     break;
     case LK_Correct_1:
-        if((PINA&0x00) == 0x00){
+        if((PINA&0xFF) == 0x00){
             LK_State = LK_Correct_1;
         }
-        else if((PINA&0x02) == 0x02){
+        else if((PINA&0xFF) == 0x02){
             LK_State = LK_Unlocked;   
         }else{
             LK_State = LK_Locked; 
