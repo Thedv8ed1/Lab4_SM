@@ -62,7 +62,13 @@ void TickFct_Cnt()
         CNT_State = CNT_Wait_DOWN;
     break;
     case CNT_Reset:
+	if((PINA&0xFF) == 0x00){
         CNT_State = CNT_Wait;
+	}
+	else{
+		CNT_State = CNT_Reset;	
+	}
+		  
     break;
   }
   
