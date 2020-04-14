@@ -13,7 +13,7 @@
 #endif
 
 
-enum CNT_States { CNT_SMStart, CNT_Wait,CNT_Wait2, CNT_Wait_UP, CNT_Wait_DOWN, CNT_UP, CNT_DOWN,CNT_Reset } CNT_State;
+enum CNT_States { CNT_SMStart, CNT_Wait, CNT_Wait_UP, CNT_Wait_DOWN, CNT_UP, CNT_DOWN,CNT_Reset } CNT_State;
 
 void TickFct_Cnt()
 {
@@ -27,10 +27,10 @@ void TickFct_Cnt()
             CNT_State = CNT_Wait;
         }
         else if((PINA&0x01) && !(PINA&0x02)){
-            CNT_State = CNT_Wait_UP;
+            CNT_State = CNT_UP;
         }
         else if(!(PINA&0x01) && (PINA&0x02)){
-            CNT_State = CNT_Wait_DOWN;
+            CNT_State = CNT_DOWN;
         }
     break;
     case CNT_Wait_UP:
@@ -41,7 +41,7 @@ void TickFct_Cnt()
            CNT_State = CNT_Reset;
         }
         else if(!(PINA&0x01)){
-            CNT_State = CNT_UP;
+            CNT_State = CNT_Wait;
         }
     break;
     case CNT_Wait_DOWN:
@@ -52,21 +52,17 @@ void TickFct_Cnt()
             CNT_State =  CNT_Reset;
         }
         else if(!(PINA&0x02)){
-            CNT_State = CNT_DOWN;
+            CNT_State = CNT_Wait;
         }
     break;
     case CNT_UP:
-        CNT_State = CNT_Wait;
+        CNT_State = CNT_Wait_UP;
     break;
     case CNT_DOWN:
-        CNT_State = CNT_Wait;
+        CNT_State = CNT_Wait_UP;
     break;
     case CNT_Reset:
         CNT_State = CNT_Wait;
-    break;
-    case CNT_Wait2:
-	if((PINA&0xFF) != 0x00){CNT_State = CNT_Wait2;}
-		  else{CNT_State = CNT_Wait;}
     break;
   }
   
