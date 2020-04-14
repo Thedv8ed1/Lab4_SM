@@ -65,7 +65,7 @@ void TickFct_Cnt()
         CNT_State = CNT_Wait;
     break;
   case CNT_Wait2:
-	if(PINA){CNT_State = CNT_Wait2}
+	if(PINA){CNT_State = CNT_Wait2;}
 		  else{CNT_State = CNT_wait;}
 		  
 	  break;
