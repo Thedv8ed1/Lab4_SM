@@ -64,11 +64,10 @@ void TickFct_Cnt()
     case CNT_Reset:
         CNT_State = CNT_Wait;
     break;
-  case CNT_Wait2:
-	if(PINA){CNT_State = CNT_Wait2;}
-		  else{CNT_State = CNT_wait;}
-		  
-	  break;
+    case CNT_Wait2:
+	if((PINA&0xFF) != 0x00){CNT_State = CNT_Wait2;}
+		  else{CNT_State = CNT_Wait;}
+    break;
   }
   
    switch(CNT_State) {   
