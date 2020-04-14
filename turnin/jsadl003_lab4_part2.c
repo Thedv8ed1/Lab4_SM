@@ -59,7 +59,7 @@ void TickFct_Cnt()
         CNT_State = CNT_Wait_UP;
     break;
     case CNT_DOWN:
-        CNT_State = CNT_Wait_UP;
+        CNT_State = CNT_Wait_DOWN;
     break;
     case CNT_Reset:
         CNT_State = CNT_Wait;
