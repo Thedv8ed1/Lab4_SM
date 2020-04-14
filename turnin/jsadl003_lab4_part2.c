@@ -32,6 +32,9 @@ void TickFct_Cnt()
         else if(!(PINA&0x01) && (PINA&0x02)){
             CNT_State = CNT_DOWN;
         }
+  	else if((PINA&0x03) == 0x03){
+	    CNT_State = CNT_Reset;		
+	}
     break;
     case CNT_Wait_UP:
         if((PINA&0x01) && !(PINA&0x02)){
