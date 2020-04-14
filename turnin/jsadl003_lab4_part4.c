@@ -50,7 +50,7 @@ void TickFct_LK()
         }
     break;
   case LK_Unlocked:
-        if(PINA == 0x40){
+        if(PINA == 0x04){
             LK_State = LK_UCorrect_Pressed;
         }else{
             LK_State = LK_Unlocked;
@@ -82,8 +82,11 @@ void TickFct_LK()
     case LK_Unlocked:
         PORTB = 0x01;
     break;
+    case LK_Locked:
+      PORTB = 0x00;
+      break;
     default:
-        PORTB = 0x00;
+        
     break;
   }
   PORTC = LK_State;
