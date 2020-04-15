@@ -148,6 +148,12 @@ void TickFct_LK(){
 		
 		break;
 	}
+	if(LK_State == LK_Locked){
+		PORTB = 0x00;
+	}
+	else if(LK_State == LK_Unlocked){
+		PORTB = 0x01;
+	}
 	PORTC = LK_State;
 }
 
