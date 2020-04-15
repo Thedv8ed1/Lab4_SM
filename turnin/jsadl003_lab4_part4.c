@@ -52,7 +52,11 @@ void TickFct_LK()
   case LK_Unlocked:
         if(PINA == 0x04){
             LK_State = LK_UCorrect_Pressed;
-        }else{
+        }
+        else if(PINA == 0x80){
+            LK_State = LK_Locked; 
+        }
+        else{
             LK_State = LK_Unlocked;
         }
     break;
