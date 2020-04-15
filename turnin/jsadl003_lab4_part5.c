@@ -87,8 +87,11 @@ void TickFct_LK(){
 		LK_State = LK_ULCheck;
 		break;
 	case LK_ULPressed_Wait:
-		if (PINA != 0x00){
+		if (PINA != 0x00 && PINA != 0x80){
 			LK_State = LK_ULPressed_Wait;
+		}
+		else if (PINA ==0x80){
+			LK_State = LK_Locked;
 		}
 		else{
 			LK_State = LK_Unlocked;
