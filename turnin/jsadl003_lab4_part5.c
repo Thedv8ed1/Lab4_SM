@@ -139,7 +139,7 @@ void TickFct_LK(){
 		LK_State = LK_ULCheck;
 		break;
 	default:
-		PORTB = 0x00;
+		
 		break;
 	}
 	PORTC = LK_State;
