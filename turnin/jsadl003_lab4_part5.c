@@ -76,6 +76,9 @@ void TickFct_LK(){
 		if ((PINA) != 0x00){
 			LK_State = LK_ULPressed;
 		}
+		else if(PINA == 0x80){
+			LK_State = LK_Locked;
+		}
 		else{
 			LK_State = LK_Unlocked;
 		}
